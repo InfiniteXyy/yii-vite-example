@@ -26,7 +26,7 @@ npm run build
 ```
 
 ```sh
-YII_ENV=prod php yii serve --port=8888
+php yii serve --port=8888
 ```
 
-The Yii php server will automatically read the vite build manifest and try to serve the static files.
+If devServer on port 5173 is not started, the Yii php server will automatically read the vite build manifest and try to serve the static files.
