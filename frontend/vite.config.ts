@@ -13,11 +13,21 @@ export default defineConfig({
     AutoImport({ resolvers: [ElementPlusResolver()] }),
     Components({ resolvers: [ElementPlusResolver()] }),
   ],
+  define: {
+    "process.env.NODE_ENV": JSON.stringify("production"),
+  },
   build: {
     outDir: resolve(__dirname, "../web/assets/vue-build"), // 输出到 yii2 可访问的 public 目录
     emptyOutDir: true,
     manifest: true, // 用于生成 manifest.json 方便 yii2 获取 chunk 路径
+    lib: {
+      entry: "src/main.ts",
+      name: "frontend",
+      formats: ["umd"],
+    },
     rollupOptions: {
+      external: ["vue"],
+      output: { globals: { vue: "Vue" } },
       input: resolve(__dirname, "src/main.ts"),
     },
   },
