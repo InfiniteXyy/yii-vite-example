@@ -3,10 +3,13 @@ import { defineCustomElement } from "vue";
 import Counter from "./components/Counter.ce.vue";
 import HelloMessage from "./components/HelloMessage.ce.vue";
 
-const CounterElement = defineCustomElement(Counter, { shadowRoot: false }); // 不使用 shadowRoot 可以共享 主页面 的样式
-const HelloMessageElement = defineCustomElement(HelloMessage, {
-  shadowRoot: false,
-});
+// 不使用 shadowRoot 可以共享 主页面 的样式
+customElements.define(
+  "my-counter",
+  defineCustomElement(Counter, { shadowRoot: false })
+);
 
-customElements.define("my-counter", CounterElement);
-customElements.define("hello-message", HelloMessageElement);
+customElements.define(
+  "hello-message",
+  defineCustomElement(HelloMessage, { shadowRoot: false })
+);
