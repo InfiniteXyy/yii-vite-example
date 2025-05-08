@@ -31,9 +31,7 @@ class Vite
       $manifest = json_decode(file_get_contents(Yii::getAlias('@webroot/assets/vue-build/.vite/manifest.json')), true);
       $entry = $manifest[$entryJs];
       $tags = '';
-      foreach ($entry['css'] ?? [] as $css) {
-        $tags .= '<link rel="stylesheet" href="/assets/vue-build/' . $css . '">' . "\n";
-      }
+      $tags .= '<link rel="stylesheet" href="/assets/vue-build/' . $manifest['style.css']['file'] . '">' . "\n";
       $tags .= '<script type="module" src="/assets/vue-build/' . $entry['file'] . '"></script>';
       return $tags;
     }
