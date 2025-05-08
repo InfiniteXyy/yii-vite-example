@@ -8,12 +8,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Counter: typeof import('./src/components/Counter.vue')['default']
     'Counter.ce': typeof import('./src/components/Counter.ce.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElTag: typeof import('element-plus/es')['ElTag']
     ElText: typeof import('element-plus/es')['ElText']
-    HelloMessage: typeof import('./src/components/HelloMessage.vue')['default']
+    'HelloMessage.ce': typeof import('./src/components/HelloMessage.ce.vue')['default']
   }
 }

@@ -8,9 +8,6 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import Components from "unplugin-vue-components/vite";
 
 export default defineConfig({
-  resolve: {
-    alias: { vue: "vue/dist/vue.esm-bundler.js" }, // 如果要直接在 php 页面使用 vue template，必须要使用带 template 功能的 vue
-  },
   plugins: [
     vue(),
     AutoImport({ resolvers: [ElementPlusResolver()] }),
@@ -24,5 +21,4 @@ export default defineConfig({
       input: resolve(__dirname, "src/main.ts"),
     },
   },
-  // base: "/assets/vue-build/", // 静态文件的基础路径
 });
